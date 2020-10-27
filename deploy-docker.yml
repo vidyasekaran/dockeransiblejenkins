@@ -22,7 +22,7 @@
     - name: Start the container
       docker_container:
         name: dockeransible
-        image: "vidguru/dockeransible:0.0.1"
+        image: "vidguru/dockeransible:0.0.2"
         state: started
         published_ports:
           - 0.0.0.0:8080:8080
