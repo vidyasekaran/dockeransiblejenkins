@@ -22,17 +22,17 @@ pipeline{
         
         stage('Docker Build'){
             steps{
-                sh "docker build . -t kammana/dockeransible:${DOCKER_TAG} "
+                sh "docker build . -t vidguru/dockeransible:${DOCKER_TAG} "
             }
         }
         
         stage('DockerHub Push'){
             steps{
                 withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]) {
-                    sh "docker login -u kammana -p ${dockerHubPwd}"
+                    sh "docker login -u vidguru -p ${dockerHubPwd}"
                 }
                 
-                sh "docker push kammana/dockeransible:${DOCKER_TAG} "
+                sh "docker push vidguru/dockeransible:${DOCKER_TAG} "
             }
         }
         
